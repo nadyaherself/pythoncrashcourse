@@ -1,0 +1,27 @@
+TRY IT YOURSELF
+Write a separate program to accomplish each of these exercises. Save each program with a filename that follows standard Python conventions, using lowercase letters and underscores, such as simple_message.py and simple_messages.py.
+2-1. Simple Message: Assign a message to a variable, and then print that message.
+Answer:
+# Exercise 2-1: Simple Message
+
+# Assign a message to a variable
+simple_message = "This is a simple message."
+
+# Print the message
+print(simple_message)
+
+2-2. Simple Messages: Assign a message to a variable, and print that message. Then change the value of the variable to a new message, and print the new message.
+Answer:
+# Exercise 2-2: Simple Messages
+
+# Assign a message to a variable
+simple_message = "This is the first message."
+
+# Print the first message
+print(simple_message)
+
+# Change the value of the variable to a new message
+simple_message = "This is the new message."
+
+# Print the new message
+print(simple_message)
