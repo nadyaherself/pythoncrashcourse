@@ -43,7 +43,7 @@ glossary = {
 for word, meaning in glossary.items():
     print(f"{word.title()}: {meaning}")
 
-6-4. Glossary 2: Now that you know how to loop through a dictionary, clean up the code from Exercise 6-3 (page 99) by replacing your series of print() calls with a loop that runs through the dictionary’s keys and values. When you’re sure that your loop works, add five more Python terms to your glossary. When you run your program again, these new words and meanings should automatically be included in the output.
+6-4. Glossary 2: Now that you know how to loop through a dictionary, clean up the code from Exercise 6-3 by replacing your series of print() calls with a loop that runs through the dictionary’s keys and values. When you’re sure that your loop works, add five more Python terms to your glossary. When you run your program again, these new words and meanings should automatically be included in the output.
 Answer:
 # Adding five more terms to the glossary
 glossary['tuple'] = 'An immutable ordered collection of elements.'
@@ -98,3 +98,77 @@ for person in people_to_poll:
         print(f"Thank you, {person}, for responding to the poll!")
     else:
         print(f"Hello, {person}! We invite you to take the poll.")
+
+6-7. People: Start with the program you wrote for Exercise 6-1. Make two new dictionaries representing different people, and store all three dictionaries in a list called people. Loop through your list of people. As you loop through the list, print everything you know about each person.
+Answer:
+person1 = {'first_name': 'John', 'last_name': 'Doe', 'age': 30, 'city': 'New York'}
+person2 = {'first_name': 'Alice', 'last_name': 'Johnson', 'age': 25, 'city': 'San Francisco'}
+person3 = {'first_name': 'Bob', 'last_name': 'Smith', 'age': 35, 'city': 'Los Angeles'}
+
+people = [person1, person2, person3]
+
+# Loop through the list of people
+for person in people:
+    print("\nPerson:")
+    for key, value in person.items():
+        print(f"{key.title()}: {value}")
+
+6-8. Pets: Make several dictionaries, where each dictionary represents a different pet. In each dictionary, include the kind of animal and the owner’s name. Store these dictionaries in a list called pets. Next, loop through your list and as you do, print everything you know about each pet.
+Answer:
+pet1 = {'kind': 'dog', 'owner': 'Alice'}
+pet2 = {'kind': 'cat', 'owner': 'Bob'}
+pet3 = {'kind': 'parrot', 'owner': 'Charlie'}
+
+pets = [pet1, pet2, pet3]
+
+# Loop through the list of pets
+for pet in pets:
+    print("\nPet:")
+    for key, value in pet.items():
+        print(f"{key.title()}: {value}")
+
+6-9. Favorite Places: Make a dictionary called favorite_places. Think of three names to use as keys in the dictionary, and store one to three favorite places for each person. To make this exercise a bit more interesting, ask some friends to name a few of their favorite places. Loop through the dictionary, and print each person’s name and their favorite places.
+Answer:
+favorite_places = {
+    'Alice': ['Paris', 'New York', 'Tokyo'],
+    'Bob': ['London', 'Sydney'],
+    'Charlie': ['San Francisco', 'Rio de Janeiro']
+}
+
+# Loop through the dictionary
+for person, places in favorite_places.items():
+    print(f"\n{person}'s favorite places:")
+    for place in places:
+        print(f"- {place}")
+
+6-10. Favorite Numbers: Modify your program from Exercise 6-2 so each person can have more than one favorite number. Then print each person’s name along with their favorite numbers.
+Answer:
+favorite_numbers = {
+    'Alice': [7, 14, 21],
+    'Bob': [42, 84],
+    'Charlie': [23, 46]
+}
+
+# Loop through the dictionary
+for person, numbers in favorite_numbers.items():
+    print(f"\n{person}'s favorite numbers:")
+    for number in numbers:
+        print(f"- {number}")
+
+6-11. Cities: Make a dictionary called cities. Use the names of three cities as keys in your dictionary. Create a dictionary of information about each city and include the country that the city is in, its approximate population, and one fact about that city. The keys for each city’s dictionary should be something like country, population, and fact. Print the name of each city and all of the information you have stored about it.
+Answer:
+cities = {
+    'New York': {'country': 'USA', 'population': 8398748, 'fact': 'Home of the Statue of Liberty'},
+    'Tokyo': {'country': 'Japan', 'population': 13929286, 'fact': 'Hosted the 2020 Summer Olympics'},
+    'Paris': {'country': 'France', 'population': 2140526, 'fact': 'Known as the City of Love'}
+}
+
+# Loop through the dictionary
+for city, info in cities.items():
+    print(f"\n{city}:")
+    for key, value in info.items():
+        print(f"{key.title()}: {value}")
+
+6-12. Extensions: We’re now working with examples that are complex enough that they can be extended in any number of ways. Use one of the example programs from this chapter, and extend it by adding new keys and values, changing the context of the program, or improving the formatting of the output.
+Answer:
+Add more details to the People program or include additional information in the Favorite Places dictionary. The goal is to practice expanding and modifying existing code.
