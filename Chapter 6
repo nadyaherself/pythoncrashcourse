@@ -1,0 +1,100 @@
+TRY IT YOURSELF
+6-1. Person: Use a dictionary to store information about a person you know. Store their first name, last name, age, and the city in which they live. You should have keys such as first_name, last_name, age, and city. Print each piece
+of information stored in your dictionary.
+Answer:
+person = {
+    'first_name': 'John',
+    'last_name': 'Doe',
+    'age': 30,
+    'city': 'New York'
+}
+
+# Print each piece of information
+for key, value in person.items():
+    print(f"{key.title()}: {value}")
+
+6-2. Favorite Numbers: Use a dictionary to store people’s favorite numbers. Think of five names, and use them as keys in your dictionary. Think of a favorite number for each person, and store each as a value in your dictionary. Print each person’s name and their favorite number. For even more fun, poll a few friends and get some actual data for your program.
+Answer:
+favorite_numbers = {
+    'Alice': 7,
+    'Bob': 42,
+    'Charlie': 23,
+    'Diana': 9,
+    'Eve': 13
+}
+
+# Print each person's name and favorite number
+for name, number in favorite_numbers.items():
+    print(f"{name}'s favorite number is {number}.")
+
+6-3. Glossary: A Python dictionary can be used to model an actual dictionary. However, to avoid confusion, let’s call it a glossary.
+• Think of five programming words you’ve learned about in the previous chapters. Use these words as the keys in your glossary, and store their meanings as values.
+• Print each word and its meaning as neatly formatted output. You might print the word followed by a colon and then its meaning, or print the word on one line and then print its meaning indented on a second line. Use the newline character (\n) to insert a blank line between each word-meaning pair in your output.
+Answer:
+glossary = {
+    'variable': 'A named storage for data.',
+    'list': 'A collection of items in a particular order.',
+    'dictionary': 'A collection of key-value pairs.',
+    'loop': 'A way to repeatedly execute a block of code.',
+    'function': 'A named set of instructions that can be called.'
+}
+
+# Print each word and its meaning
+for word, meaning in glossary.items():
+    print(f"{word.title()}: {meaning}")
+
+6-4. Glossary 2: Now that you know how to loop through a dictionary, clean up the code from Exercise 6-3 (page 99) by replacing your series of print() calls with a loop that runs through the dictionary’s keys and values. When you’re sure that your loop works, add five more Python terms to your glossary. When you run your program again, these new words and meanings should automatically be included in the output.
+Answer:
+# Adding five more terms to the glossary
+glossary['tuple'] = 'An immutable ordered collection of elements.'
+glossary['set'] = 'An unordered collection of unique elements.'
+glossary['method'] = 'A function that is associated with an object.'
+glossary['argument'] = 'A value passed to a function or method.'
+glossary['module'] = 'A file containing Python definitions and statements.'
+
+# Print each word and its meaning using a loop
+for word, meaning in glossary.items():
+    print(f"{word.title()}: {meaning}")
+
+6-5. Rivers: Make a dictionary containing three major rivers and the country each river runs through. One key-value pair might be 'nile': 'egypt'.
+• Use a loop to print a sentence about each river, such as The Nile runs through Egypt.
+• Use a loop to print the name of each river included in the dictionary.
+• Use a loop to print the name of each country included in the dictionary.
+Answer:
+rivers = {
+    'nile': 'egypt',
+    'amazon': 'brazil',
+    'yangtze': 'china'
+}
+
+# Print a sentence about each river
+for river, country in rivers.items():
+    print(f"The {river.title()} runs through {country.title()}.")
+
+# Print the name of each river
+print("\nRivers:")
+for river in rivers.keys():
+    print(river.title())
+
+# Print the name of each country
+print("\nCountries:")
+for country in rivers.values():
+    print(country.title())
+
+6-6. Polling: Use the code in favorite_languages.py.
+• Make a list of people who should take the favorite languages poll. Include some names that are already in the dictionary and some that are not.
+• Loop through the list of people who should take the poll. If they have already taken the poll, print a message thanking them for responding. If they have not yet taken the poll, print a message inviting them to take the poll.
+Answer:
+favorite_languages = {
+    'Alice': 'Python',
+    'Bob': 'JavaScript',
+    'Charlie': 'C#'
+}
+
+people_to_poll = ['Alice', 'Bob', 'Eve']
+
+for person in people_to_poll:
+    if person in favorite_languages:
+        print(f"Thank you, {person}, for responding to the poll!")
+    else:
+        print(f"Hello, {person}! We invite you to take the poll.")
