@@ -99,12 +99,96 @@ print("\nCubes (List Comprehension):", cubes)
 • Print the message Three items from the middle of the list are:. Then use a slice to print three items from the middle of the list.
 • Print the message The last three items in the list are:. Then use a slice to print the last three items in the list.
 Answer:
+# Print slices of the list
+print("\nThe first three items in the list are:")
+print(favorite_pizzas[:3])
+
+print("\nThree items from the middle of the list are:")
+print(favorite_pizzas[1:4])
+
+print("\nThe last three items in the list are:")
+print(favorite_pizzas[-3:])
 
 4-11. My Pizzas, Your Pizzas: Start with your program from Exercise 4-1. Make a copy of the list of pizzas, and call it friend_pizzas. Then, do the following:
 • Add a new pizza to the original list.
 • Add a different pizza to the list friend_pizzas.
 • Prove that you have two separate lists. Print the message My favorite pizzas are:, and then use a for loop to print the first list. Print the message My friend’s favorite pizzas are:, and then use a for loop to print the second list. Make sure each new pizza is stored in the appropriate list.
 Answer:
+# Copy the list of pizzas
+friend_pizzas = favorite_pizzas.copy()
+
+# Add a new pizza to the original list
+favorite_pizzas.append("Hawaiian")
+
+# Add a different pizza to the list friend_pizzas
+friend_pizzas.append("BBQ Chicken")
+
+# Prove that you have two separate lists
+print("\nMy favorite pizzas are:")
+for pizza in favorite_pizzas:
+    print(pizza)
+
+print("\nMy friend’s favorite pizzas are:")
+for pizza in friend_pizzas:
+    print(pizza)
 
 4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing, to save space. Choose a version of foods.py, and write two for loops to print each list of foods.
 Answer:
+# Print each list of foods using for loops
+print("\nMy favorite foods are:")
+for food in favorite_foods:
+    print(food)
+
+print("\nMy friend’s favorite foods are:")
+for food in friend_foods:
+    print(food)
+
+4-13. Buffet: A buffet-style restaurant offers only five basic foods. Think of five simple foods, and store them in a tuple.
+• Use a for loop to print each food the restaurant offers.
+• Try to modify one of the items, and make sure that Python rejects the change.
+• The restaurant changes its menu, replacing two of the items with different foods. Add a line that rewrites the tuple, and then use a for loop to print each of the items on the revised menu.
+Answer:
+# Original menu
+menu = ("Pizza", "Burger", "Pasta", "Salad", "Ice Cream")
+
+# Print each food the restaurant offers
+print("Original Menu:")
+for food in menu:
+    print(food)
+
+# Try to modify one of the items (will raise an error)
+# menu[1] = "Hot Dog"  # Uncommenting this line will result in a TypeError
+
+# The restaurant changes its menu, replacing two items
+menu = ("Sushi", "Steak", "Pasta", "Salad", "Cake")
+
+# Print each item on the revised menu
+print("\nRevised Menu:")
+for item in menu:
+    print(item)
+
+4-14. PEP 8: Look through the original PEP 8 style guide at https://python.org/dev/peps/pep-0008. You won’t use much of it now, but it might be interesting to skim through it.
+Answer:
+https://peps.python.org/pep-0008/
+The wrong and correct example of code helps so much.
+
+4-15. Code Review: Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
+• Use four spaces for each indentation level. Set your text editor to insert four spaces every time you press the TAB key, if you haven’t already done so.
+• Use less than 80 characters on each line, and set your editor to show a vertical guideline at the 80th character position.
+• Don’t use blank lines excessively in your program files.
+Answer:
+# List of favorite pizzas
+favorite_pizzas = ["Margherita", "Pepperoni", "Vegetarian"]
+
+# Print the name of each pizza
+print("Pizza Names:")
+for pizza in favorite_pizzas:
+    print(pizza)
+
+# Print a sentence using the name of each pizza
+print("\nPizza Statements:")
+for pizza in favorite_pizzas:
+    print(f"I like {pizza} pizza.")
+
+# Statement about liking pizza
+print("\nI really love pizza!")
