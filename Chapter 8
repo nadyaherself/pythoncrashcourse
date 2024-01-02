@@ -1,0 +1,326 @@
+TRY IT YOURSELF
+8-1. Message: Write a function called display_message() that prints one sentence telling everyone what you are learning about in this chapter. Call the function, and make sure the message displays correctly.
+Answer:
+def display_message():
+    """Display a message about what I'm learning in this chapter."""
+    print("In this chapter, I am learning about functions in Python.")
+
+# Call the function
+display_message()
+
+8-2. Favorite Book: Write a function called favorite_book() that accepts one parameter, title. The function should print a message, such as One of my favorite books is Alice in Wonderland. Call the function, making sure to include a book title as an argument in the function call.
+Answer:
+# Exercise 8-2: Favorite Book
+
+def favorite_book(title):
+    """Print a message about a favorite book."""
+    print(f"One of my favorite books is {title}.")
+
+# Call the function with a book title
+favorite_book("Alice in Wonderland")
+
+8-3. T-Shirt: Write a function called make_shirt() that accepts a size and the text of a message that should be printed on the shirt. The function should print a sentence summarizing the size of the shirt and the message printed on it. Call the function once using positional arguments to make a shirt. Call the function a second time using keyword arguments.
+Answer:
+def make_shirt(size, message):
+    """Display information about a T-shirt."""
+    print(f"The shirt is size {size} and has the message: {message}")
+
+# Call the function with positional arguments
+make_shirt("medium", "Hello, World!")
+
+# Call the function with keyword arguments
+make_shirt(size="large", message="Python Rocks!")
+
+8-4. Large Shirts: Modify the make_shirt() function so that shirts are large by default with a message that reads I love Python. Make a large shirt and a medium shirt with the default message, and a shirt of any size with a different message.
+Answer:
+def make_shirt(size="large", message="I love Python"):
+    """Display information about a T-shirt."""
+    print(f"The shirt is size {size} and has the message: {message}")
+
+# Make a large shirt with the default message
+make_shirt()
+
+# Make a medium shirt with the default message
+make_shirt("medium")
+
+# Make a shirt of any size with a different message
+make_shirt("small", "Programming is Fun!")
+
+8-5. Cities: Write a function called describe_city() that accepts the name of a city and its country. The function should print a simple sentence, such as Reykjavik is in Iceland. Give the parameter for the country a default value. Call your function for three different cities, at least one of which is not in the default country.
+Answer:
+def describe_city(city, country="Unknown"):
+    """Print a sentence describing a city and its country."""
+    print(f"{city} is in {country}.")
+
+# Call the function for three different cities
+describe_city("Reykjavik", "Iceland")
+describe_city("Paris", "France")
+describe_city("Tokyo")
+
+8-6. City Names: Write a function called city_country() that takes in the name of a city and its country. The function should return a string formatted like this: "Santiago, Chile" Call your function with at least three city-country pairs, and print the values that are returned.
+Answer:
+def city_country(city, country):
+    """Return a formatted string with the city and country."""
+    return f"{city.title()}, {country.title()}"
+
+# Test the function with three city-country pairs
+location1 = city_country("santiago", "chile")
+location2 = city_country("new york", "usa")
+location3 = city_country("tokyo", "japan")
+
+# Print the results
+print(location1)
+print(location2)
+print(location3)
+
+8-7. Album: Write a function called make_album() that builds a dictionary describing a music album. The function should take in an artist name and an album title, and it should return a dictionary containing these two pieces of information. Use the function to make three dictionaries representing different albums. Print each return value to show that the dictionaries are storing the album information correctly. Use None to add an optional parameter to make_album() that allows you to store the number of songs on an album. If the calling line includes a value for the number of songs, add that value to the album’s dictionary. Make at least one new function call that includes the number of songs on an album.
+Answer:
+def make_album(artist, title, songs=None):
+    """Return a dictionary describing a music album."""
+    album = {"artist": artist.title(), "title": title.title()}
+    if songs:
+        album["songs"] = songs
+    return album
+
+# Test the function with three different albums
+album1 = make_album("queen", "a night at the opera", 12)
+album2 = make_album("beatles", "abbey road")
+album3 = make_album("michael jackson", "thriller", 9)
+
+# Print the results
+print(album1)
+print(album2)
+print(album3)
+
+8-8. User Albums: Start with your program from Exercise 8-7. Write a while loop that allows users to enter an album’s artist and title. Once you have that information, call make_album() with the user’s input and print the dictionary that’s created. Be sure to include a quit value in the while loop.
+Answer:
+def make_album(artist, title, songs=None):
+    """Return a dictionary describing a music album."""
+    album = {"artist": artist.title(), "title": title.title()}
+    if songs:
+        album["songs"] = songs
+    return album
+
+# User input loop
+while True:
+    print("\nEnter album information. Type 'q' to quit.")
+    
+    artist = input("Artist: ")
+    if artist == 'q':
+        break
+    
+    title = input("Title: ")
+    if title == 'q':
+        break
+    
+    songs = input("Number of songs (optional): ")
+    if songs == 'q':
+        break
+    elif songs:
+        songs = int(songs)
+
+    # Call the function and print the dictionary
+    album_info = make_album(artist, title, songs)
+    print(album_info)
+
+8-9. Messages: Make a list containing a series of short text messages. Pass the list to a function called show_messages(), which prints each text message.
+Answer:
+def show_messages(messages):
+    """Print each message in the list."""
+    for message in messages:
+        print(message)
+
+# Define a list of messages
+text_messages = ["Hello!", "How are you?", "Python is fun!"]
+
+# Call the function
+show_messages(text_messages)
+
+8-10. Sending Messages: Start with a copy of your program from Exercise 8-9. Write a function called send_messages() that prints each text message and moves each message to a new list called sent_messages as it’s printed. After calling the function, print both of your lists to make sure the messages were moved correctly.
+Answer:
+def show_messages(messages):
+    """Print each message in the list."""
+    for message in messages:
+        print(message)
+
+def send_messages(messages, sent_messages):
+    """
+    Print each message, then move it to sent_messages.
+    """
+    while messages:
+        current_message = messages.pop(0)
+        print(f"Sending message: {current_message}")
+        sent_messages.append(current_message)
+
+# Define a list of messages
+text_messages = ["Hello!", "How are you?", "Python is fun!"]
+
+# Create an empty list for sent messages
+sent_messages = []
+
+# Call the function
+send_messages(text_messages, sent_messages)
+
+# Print both lists to verify
+print("Original messages:")
+show_messages(text_messages)
+
+print("\nSent messages:")
+show_messages(sent_messages)
+
+8-11. Archived Messages: Start with your work from Exercise 8-10. Call the function send_messages() with a copy of the list of messages. After calling the function, print both of your lists to show that the original list has retained its messages.
+Answer:
+def show_messages(messages):
+    """Print each message in the list."""
+    for message in messages:
+        print(message)
+
+def send_messages(messages, sent_messages):
+    """
+    Print each message, then move it to sent_messages.
+    """
+    while messages:
+        current_message = messages.pop(0)
+        print(f"Sending message: {current_message}")
+        sent_messages.append(current_message)
+
+# Define a list of messages
+text_messages = ["Hello!", "How are you?", "Python is fun!"]
+
+# Create an empty list for sent messages
+sent_messages = []
+
+# Call the function with a copy of the original list
+send_messages(text_messages[:], sent_messages)
+
+# Print both lists to verify
+print("Original messages:")
+show_messages(text_messages)
+
+print("\nSent messages:")
+show_messages(sent_messages)
+
+8-12. Sandwiches: Write a function that accepts a list of items a person wants on a sandwich. The function should have one parameter that collects as many items as the function call provides, and it should print a summary of the sandwich that’s being ordered. Call the function three times, using a different number of arguments each time.
+Answer:
+def make_sandwich(*toppings):
+    """Make a sandwich with the provided toppings."""
+    print("Making a sandwich with the following toppings:")
+    for topping in toppings:
+        print(f"- {topping}")
+
+# Call the function with different numbers of toppings
+make_sandwich("ham", "cheese", "lettuce")
+make_sandwich("turkey", "swiss")
+make_sandwich("peanut butter", "jelly", "banana")
+
+8-13. User Profile: Start with a copy of user_profile.py from page 148. Build a profile of yourself by calling build_profile(), using your first and last names and three other key-value pairs that describe you.
+Answer:
+def build_profile(first, last, **user_info):
+    """Build a dictionary containing everything we know about a user."""
+    profile = {
+        'first_name': first,
+        'last_name': last,
+    }
+    profile.update(user_info)
+    return profile
+
+# Build a profile with arbitrary information
+my_profile = build_profile('John', 'Doe', age=30, location='New York', occupation='Developer')
+
+print(my_profile)
+
+8-14. Cars: Write a function that stores information about a car in a dictionary. The function should always receive a manufacturer and a model name. It should then accept an arbitrary number of keyword arguments. Call the function with the required information and two other name-value pairs, such as a color or an optional feature. Your function should work for a call like this one: car = make_car('subaru', 'outback', color='blue', tow_package=True)
+Print the dictionary that’s returned to make sure all the information was stored correctly.
+Answer:
+def make_car(manufacturer, model, **car_info):
+    """Build a dictionary containing information about a car."""
+    car = {
+        'manufacturer': manufacturer,
+        'model': model,
+    }
+    car.update(car_info)
+    return car
+
+# Call the function with required and optional information
+car = make_car('subaru', 'outback', color='blue', tow_package=True)
+
+# Print the resulting dictionary
+print(car)
+
+8-15. Printing Models: Put the functions for the example printing_models.py in a separate file called printing_functions.py. Write an import statement at the top of printing_models.py, and modify the file to use the imported functions.
+Answer:
+# printing_functions.py
+
+def print_models(unprinted_designs, completed_models):
+    """Simulate printing each design, until none are left.
+    Move each design to completed_models after printing."""
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        print(f"Printing model: {current_design}")
+        completed_models.append(current_design)
+
+def show_completed_models(completed_models):
+    """Display all completed models."""
+    print("\nThe following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+-----
+# printing_models.py
+import printing_functions as pf
+
+# Example usage
+unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+
+pf.print_models(unprinted_designs, completed_models)
+pf.show_completed_models(completed_models)
+
+8-16. Imports: Using a program you wrote that has one function in it, store that function in a separate file. Import the function into your main program file, and call the function using each of these approaches:
+import module_name
+from module_name import function_name
+from module_name import function_name as fn
+import module_name as mn
+from module_name import *
+Answer:
+# main_program.py
+
+# Approach 1: import module_name
+import math_operations
+
+result1 = math_operations.calculate_square(5)
+print(f"Approach 1: {result1}")
+
+# Approach 2: from module_name import function_name
+from math_operations import calculate_square
+
+result2 = calculate_square(5)
+print(f"Approach 2: {result2}")
+
+# Approach 3: from module_name import function_name as fn
+from math_operations import calculate_square as cs
+
+result3 = cs(5)
+print(f"Approach 3: {result3}")
+
+# Approach 4: import module_name as mn
+import math_operations as mo
+
+result4 = mo.calculate_square(5)
+print(f"Approach 4: {result4}")
+
+# Approach 5: from module_name import *
+from math_operations import *
+
+result5 = calculate_square(5)
+print(f"Approach 5: {result5}")
+
+------
+# math_operations.py
+
+def calculate_square(number):
+    """Calculate the square of a number."""
+    return number ** 2
+
+8-17. Styling Functions: Choose any three programs you wrote for this chapter, and make sure they follow the styling guidelines described in this section.
+Answer:
+Styling guidelines typically include using consistent indentation, proper spacing, and clear and descriptive variable and function names.
