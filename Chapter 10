@@ -1,1 +1,240 @@
+TRY IT YOURSELF
+10-1. Learning Python: Open a blank file in your text editor and write a few lines summarizing what you’ve learned about Python so far. Start each line with the phrase In Python you can. . . . Save the file as learning_python.txt in the same directory as your exercises from this chapter. Write a program that reads the file and prints what you wrote two times: print the contents once by reading in the entire file, and once by storing the lines in a list and then looping over each line.
+Answer:
+# Writing to the file learning_python.txt
+with open('learning_python.txt', 'w') as file:
+    file.write("In Python you can...\n")
+    file.write("- Use a simple and clean syntax.\n")
+    file.write("- Easily read and understand code.\n")
+    file.write("- Leverage a vast standard library.\n")
+    file.write("- Develop diverse applications, from web to data analysis.\n")
+
+# Reading the file and printing its contents
+with open('learning_python.txt') as file:
+    # Read the entire file
+    content_once = file.read()
+    print(content_once)
+
+    # Read lines into a list and loop over each line
+    file.seek(0)  # Reset file cursor to the beginning
+    lines = file.readlines()
+    for line in lines:
+        print(line.rstrip())  # rstrip() removes the newline character
+
+10-2. Learning C: You can use the replace() method to replace any word in a string with a different word. Here’s a quick example showing how to replace 'dog' with 'cat' in a sentence:
+>>> message = "I really like dogs."
+>>> message.replace('dog', 'cat')
+'I really like cats.'
+Read in each line from the file you just created, learning_python.txt, and replace the word Python with the name of another language, such as C. Print each modified line to the screen. 
+Answer:
+# Reading the file and replacing 'Python' with 'C'
+with open('learning_python.txt') as file:
+    for line in file:
+        modified_line = line.replace('Python', 'C')
+        print(modified_line.rstrip())
+
+10-3. Simpler Code: The program file_reader.py in this section uses a temporary variable, lines, to show how splitlines() works. You can skip the temporary variable and loop directly over the list that splitlines() returns:
+for line in contents.splitlines():
+Remove the temporary variable from each of the programs in this section, to make them more concise.
+Answer:
+Modify the existing programs in this section to remove the temporary variable lines, making the code more concise. Use the loop directly over the list returned by splitlines().
+
+10-4. Guest: Write a program that prompts the user for their name. When they respond, write their name to a file called guest.txt.
+Answer:
+# Prompt the user for their name and write it to guest.txt
+guest_name = input("What is your name? ")
+with open('guest.txt', 'w') as file:
+    file.write(guest_name)
+
+10-5. Guest Book: Write a while loop that prompts users for their name. Collect all the names that are entered, and then write these names to a file called guest_book.txt. Make sure each entry appears on a new line in the file.
+Answer:
+# Write a while loop to collect guest names and write them to guest_book.txt
+guest_book_filename = 'guest_book.txt'
+
+print("Enter 'quit' when you are done.")
+while True:
+    guest_name = input("What is your name? ")
     
+    if guest_name.lower() == 'quit':
+        break
+    
+    with open(guest_book_filename, 'a') as file:
+        file.write(guest_name + '\n')
+
+the program uses a while loop to continuously prompt the user for their name. If the user enters "quit," the loop breaks. Otherwise, the entered name is written to the file guest_book.txt, with each entry on a new line.
+
+10-6. Addition: One common problem when prompting for numerical input occurs when people provide text instead of numbers. When you try to convert the input to an int, you’ll get a ValueError. Write a program that prompts for two numbers. Add them together and print the result. Catch the ValueError if either input value is not a number, and print a friendly error message. Test your program by entering two numbers and then by entering some text instead of a number.
+Answer:
+try:
+    # Prompt for two numbers and add them
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    result = num1 + num2
+    print(f"The sum of {num1} and {num2} is: {result}")
+except ValueError:
+    print("Please enter valid numeric input.")
+
+10-7. Addition Calculator: Wrap your code from Exercise 10-5 in a while loop so the user can continue entering numbers, even if they make a mistake and enter text instead of a number.
+Answer:
+while True:
+    try:
+        # Prompt for two numbers and add them
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+        result = num1 + num2
+        print(f"The sum of {num1} and {num2} is: {result}")
+    except ValueError:
+        print("Please enter valid numeric input.")
+
+10-8. Cats and Dogs: Make two files, cats.txt and dogs.txt. Store at least three names of cats in the first file and three names of dogs in the second file. Write a program that tries to read these files and print the contents of the file to the screen. Wrap your code in a try-except block to catch the FileNotFound error, and print a friendly message if a file is missing. Move one of the files to a different location on your system, and make sure the code in the except block executes properly.
+Answer:
+filenames = ['cats.txt', 'dogs.txt']
+
+for filename in filenames:
+    try:
+        with open(filename, 'r') as file:
+            contents = file.read()
+            print(f"Contents of {filename}:\n{contents}")
+    except FileNotFoundError:
+        print(f"Sorry, the file {filename} does not exist.")
+
+10-9. Silent Cats and Dogs: Modify your except block in Exercise 10-7 to fail silently if either file is missing.
+Answer:
+filenames = ['cats.txt', 'dogs.txt']
+
+for filename in filenames:
+    try:
+        with open(filename, 'r') as file:
+            contents = file.read()
+            print(f"Contents of {filename}:\n{contents}")
+    except FileNotFoundError:
+        pass  # Fail silently if the file is missing
+
+10-10. Common Words: Visit Project Gutenberg (https://gutenberg.org ) and find a few texts you’d like to analyze. Download the text files for these works, or copy the raw text from your browser into a text file on your computer. You can use the count() method to find out how many times a word or phrase appears in a string. For example, the following code counts the number of times 'row' appears in a string:
+>>> line = "Row, row, row your boat"
+>>> line.count('row')
+2
+>>> line.lower().count('row')
+3
+Notice that converting the string to lowercase using lower() catches all appearances of the word you’re looking for, regardless of how it’s formatted. Write a program that reads the files you found at Project Gutenberg and determines how many times the word 'the' appears in each text. This will be an approximation because it will also count words such as 'then' and 'there'. Try counting 'the ', with a space in the string, and see how much lower your count is.
+Answer:
+def count_word_occurrences(filename, word):
+    try:
+        with open(filename, 'r') as file:
+            contents = file.read()
+            return contents.lower().count(word)
+    except FileNotFoundError:
+        return 0
+
+files_to_analyze = ['file1.txt', 'file2.txt']  # Replace with actual file names
+word_to_count = 'the'
+
+for file in files_to_analyze:
+    count = count_word_occurrences(file, word_to_count)
+    print(f"The word '{word_to_count}' appears {count} times in {file}.")
+
+10-11. Favorite Number: Write a program that prompts for the user’s favorite number. Use json.dumps() to store this number in a file. Write a separate program that reads in this value and prints the message “I know your favorite number! It’s _____.”
+Answer:
+import json
+
+# Prompt for the user's favorite number
+favorite_number = input("What is your favorite number? ")
+
+filename = 'favorite_number.json'
+
+# Store the favorite number in a file using json.dumps()
+with open(filename, 'w') as file:
+    json.dump(favorite_number, file)
+
+# Separate program to read the favorite number
+with open(filename, 'r') as file:
+    stored_number = json.load(file)
+
+print(f"I know your favorite number! It's {stored_number}.")
+
+
+10-12. Favorite Number Remembered: Combine the two programs you wrote in Exercise 10-11 into one file. If the number is already stored, report the favorite number to the user. If not, prompt for the user’s favorite number and store it in a file. Run the program twice to see that it works.
+Answer:
+import json
+
+filename = 'favorite_number.json'
+
+try:
+    # Try to read the favorite number from the file
+    with open(filename, 'r') as file:
+        stored_number = json.load(file)
+    print(f"I know your favorite number! It's {stored_number}.")
+except FileNotFoundError:
+    # If the file doesn't exist, prompt for the favorite number
+    favorite_number = input("What is your favorite number? ")
+    # Store the favorite number in a file using json.dumps()
+    with open(filename, 'w') as file:
+        json.dump(favorite_number, file)
+    print("Your favorite number has been remembered.")
+
+10-13. User Dictionary: The remember_me.py example only stores one piece of information, the username. Expand this example by asking for two more pieces of information about the user, then store all the information you collect in a dictionary. Write this dictionary to a file using json.dumps(), and read it back in using json.loads(). Print a summary showing exactly what your program remembers about the user.
+Answer:
+import json
+
+filename = 'user_info.json'
+
+try:
+    # Try to read user information from the file
+    with open(filename, 'r') as file:
+        user_info = json.load(file)
+        print("Welcome back, " + user_info['username'] + "!")
+        print("Additional information:")
+        for key, value in user_info.items():
+            if key != 'username':
+                print(f"{key}: {value}")
+except FileNotFoundError:
+    # If the file doesn't exist, prompt for user information
+    user_info = {}
+    user_info['username'] = input("Enter your username: ")
+    user_info['favorite_color'] = input("Enter your favorite color: ")
+    user_info['age'] = input("Enter your age: ")
+
+    # Store user information in a file using json.dumps()
+    with open(filename, 'w') as file:
+        json.dump(user_info, file)
+    print("Your information has been stored.")
+
+10-14. Verify User: The final listing for remember_me.py assumes either that the user has already entered their username or that the program is running for the first time. We should modify it in case the current user is not the person who last used the program. Before printing a welcome back message in greet_user(), ask the user if this is the correct username. If it’s not, call get_new_username() to get the correct username.
+Answer:
+import json
+
+filename = 'user_info.json'
+
+def get_new_username():
+    # Function to get a new username
+    return input("Enter your username: ")
+
+try:
+    # Try to read user information from the file
+    with open(filename, 'r') as file:
+        user_info = json.load(file)
+        stored_username = user_info['username']
+        print(f"Welcome back, {stored_username}!")
+
+        # Ask the user if the username is correct
+        current_username = input("Is this the correct username? (yes/no) ").lower()
+
+        if current_username != 'yes':
+            # If not, get a new username
+            user_info['username'] = get_new_username()
+
+        print("Additional information:")
+        for key, value in user_info.items():
+            if key != 'username':
+                print(f"{key}: {value}")
+except FileNotFoundError:
+    # If the file doesn't exist, prompt for user information
+    user_info = {}
+    user_info['username'] = get_new_username()
+    user_info['favorite_color'] = input("Enter your favorite color: ")
+    user_info['age'] = input("Enter your age: ")
+
+    # Store user information in a file using json.dumps()
+    with open(filename, 'w') as file:
+        json.dump(user_info, file)
+    print("Your information has been stored.")
